@@ -14,10 +14,10 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((error) => console.log("MongoDB Connection Error:", error));
 
-const port = 3004;
+const PORT = process.env.PORT || 3004;
 
-app.get("/home", (req, res) => {
-  res.send("Hello");
+app.get("/", (req, res) => {
+  res.send("Welcome To Suby");
 });
 
 app.use("/vendor",Vendorrouter)
@@ -28,6 +28,6 @@ app.use("/uploads",express.static("uploads")) // standard format for images in n
 
 app.use("/firm",firmRouter)
 
-app.listen(port, () => {
-  console.log(`Server running at ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running at ${PORT}`);
 });
