@@ -67,8 +67,8 @@ const vendorLogin = async (req, res) => {
 
 const getvenderList = async (req, res) => {
     try {
-        const getList = await Vendor.find().populate('firm') // populating the firm field
-        res.json({ getList })
+        const VendorList = await Vendor.find().populate('firm') // populating the firm field
+        res.json({ VendorList })
     }
     catch (error) {
         console.log(error)
