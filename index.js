@@ -7,6 +7,13 @@ const productRouter = require("./routes/productRoute")
 const app = express();
 app.use(express.json())
 dotEnv.config();
+const cors = require('cors'); // Import the cors module
+
+// Enable CORS for http://localhost:3000 (your front-end)
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
+
 
 console.log("MongoDB URI:", process.env.MONGO_URI); // Debug log
 
