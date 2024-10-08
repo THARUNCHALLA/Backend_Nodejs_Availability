@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 // Firm Schema
 const firmSchema = new mongoose.Schema({
     firName: { type: String, required: true },
+    area:{type:String,required:true},
+    offers:{type:String,required:true},
     category: [
       {
         veg: { type: Boolean, required: true },
@@ -17,7 +19,19 @@ const firmSchema = new mongoose.Schema({
         japanese: { type: Boolean, required: true },
       },
     ],
-   
+    product:[
+      {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "product" // Referencing the "product" model correctly
+      }
+  ],
+  Vendor:[
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Vendor" // Referencing the "product" model correctly
+    }
+],
+  
   });
   
 

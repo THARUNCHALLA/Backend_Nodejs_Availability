@@ -2,7 +2,6 @@ const multer = require("multer");
 const Firm = require("../models/Firm")
 const product = require("../models/product")
 
-// Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/'); // Directory to save the uploaded files
@@ -24,7 +23,6 @@ const addProduct = async (req, res) => {
         if (!firm) {
             return res.status(401).send({ message: "Firm Not Found" })
         }
-        // Create a new firm instance
         const productData = new product({
             productName,
             price,
